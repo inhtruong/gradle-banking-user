@@ -7,12 +7,16 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>User Management Application</title>
     <%@ include file="/layout/head.jsp"%>
+
+    <script src="${pageContext.request.contextPath}/resource/js/bootstrap.bundle.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resource/js/jquery-3.6.0.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resource/js/jquery.validate.min.js"></script>
 </head>
 <body>
     <div class="be-wrapper be-fixed-sidebar">
@@ -62,17 +66,17 @@
 <%--                                    <button class="btn btn-space btn-secondary btn-lg">Cancel</button>--%>
                                 </div>
                             </div>
-<%--                            <div id="alert" class="form-group col-12 col-sm-6 col-md-4">--%>
-<%--                                <c:if test='${requestScope["mess-add"] != null}'>--%>
-<%--                                    <span class="message" style="color: blue;" ><i class="fa fa-check-circle"></i>&nbsp;${requestScope["mess-add"]}</span>--%>
-<%--                                </c:if>--%>
-<%--                                <c:if test='${requestScope["message_delete"] != null}'>--%>
-<%--                                    <span class="message alert" style="color: red;"><i class="fa fa-exclamation-circle"></i>&nbsp;${requestScope["message_delete"]}</span>--%>
-<%--                                </c:if>--%>
-<%--                                <c:if test='${requestScope["mess-alert"] != null}'>--%>
-<%--                                    <span class="message " style="color: #fa983a;"><i class="fa fa-exclamation-triangle"></i>&nbsp;${requestScope["mess-alert"]}</span>--%>
-<%--                                </c:if>--%>
-<%--                            </div>--%>
+                            <div id="alert" class="form-group col-12 col-sm-6 col-md-4">
+                                <c:if test='${requestScope["mess-add"] != null}'>
+                                    <span class="message" style="color: blue;" ><i class="fa fa-check-circle"></i>&nbsp;${requestScope["mess-add"]}</span>
+                                </c:if>
+                                <c:if test='${requestScope["message_delete"] != null}'>
+                                    <span class="message alert" style="color: red;"><i class="fa fa-exclamation-circle"></i>&nbsp;${requestScope["message_delete"]}</span>
+                                </c:if>
+                                <c:if test='${requestScope["mess-alert"] != null}'>
+                                    <span class="message " style="color: #fa983a;"><i class="fa fa-exclamation-triangle"></i>&nbsp;${requestScope["mess-alert"]}</span>
+                                </c:if>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -88,7 +92,7 @@
                         </div>
                         <div class="card-body">
                             <table class="table table-hover table-bordered">
-                                <thead>
+                                <thead class="text-center">
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Name</th>
@@ -101,11 +105,11 @@
                                 <c:forEach var="user" items="${listUser}">
                                     <tbody>
                                     <tr>
-                                        <td scope="row">${user.getId()}</td>
+                                        <td scope="row" class="text-center">${user.getId()}</td>
                                         <td>${user.getName()}</td>
                                         <td>${user.getEmail()}</td>
                                         <td>${user.getCountry()}</td>
-                                        <td>
+                                        <td class="text-right">
                                             <fmt:formatNumber value="${user.getBalance()}" type="currency" currencySymbol="$"></fmt:formatNumber>
                                         </td>
                                         <td>
@@ -128,47 +132,49 @@
 
     </div>
 
-<%@ include file="/layout/script.jsp"%>
+    <%@ include file="/layout/script.jsp"%>
     <script>
-        $(document).ready(function () {
-            var $formValidate = $('#formValidate');
-            if ($formValidate.length) {
-                $('#formValidate').validate({
-                    onfocusout: false,
-                    onkeyup: false,
-                    onclick: false,
-                    rules: {
-                        name: {
-                            require: true,
-                            minlength: 3
-                        },
-                        country: {
-                            require: true,
-                            maxlength: 15
-                        },
-                        email: {
-                            required: true,
-                            email: true
-                        }
+        $(function () {
+            // var $formValidate = $('#formValidate');
+            // if ($formValidate.length) {
+            // }
+            $('#formValidate').validate({
+                onfocusout: false,
+                onkeyup: false,
+                onclick: false,
+                rules: {
+                    name: {
+                        require: true,
+                        minlength: 3
                     },
-                    message: {
-                        name: {
-                            require: "Vui lòng nhập tên của bạn",
-                            minlength: "Vui lòng nhập đầy đủ họ và tên"
-                        },
-                        country: {
-                            require: "Vui lòng nhập quê quán của bạn",
-                            maxlength: "Vui lòng nhập chính xác quê quán"
-                        },
-                        email: {
-                            require: "Vui lòng nhập email của bạn",
-                            email: "Email phải đúng định dạng sau: abc@domain.tld"
-                        }
+                    country: {
+                        require: true,
+                        maxlength: 15
+                    },
+                    email: {
+                        required: true,
+                        email: true
                     }
-                });
-            }
+                },
+                message: {
+                    name: {
+                        require: "Vui lòng nhập tên của bạn",
+                        minlength: "Vui lòng nhập đầy đủ họ và tên"
+                    },
+                    country: {
+                        require: "Vui lòng nhập quê quán của bạn",
+                        maxlength: "Vui lòng nhập chính xác quê quán"
+                    },
+                    email: {
+                        require: "Vui lòng nhập email của bạn",
+                        email: "Email phải đúng định dạng sau: abc@domain.tld"
+                    },
+                },
+                submitHandler: function (form) {
+                    form.submit();
+                }
+            });
         });
-
 
     </script>
 </body>

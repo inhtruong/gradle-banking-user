@@ -20,3 +20,5 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/app.css" type="text/css">
 
+<%--<script src="${pageContext.request.contextPath}/resource/js/script.js"></script>--%>
+

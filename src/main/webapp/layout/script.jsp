@@ -14,7 +14,4 @@
 <script src="/assets/lib/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
 <script src="/assets/lib/jqvmap/jquery.vmap.min.js" type="text/javascript"></script>
 <script src="/assets/lib/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-<%--<script src="${pageContext.request.contextPath}/resource/js/bootstrap.bundle.min.js"></script>--%>
-<%--<script src="${pageContext.request.contextPath}/resource/js/jquery-3.6.0.min.js"></script>--%>
-<%--<script src="${pageContext.request.contextPath}/resource/js/jquery.validate.min.js"></script>--%>
-<%--<script src="${pageContext.request.contextPath}/resource/js/script.js"></script>--%>
+

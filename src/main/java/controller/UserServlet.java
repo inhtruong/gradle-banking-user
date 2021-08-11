@@ -176,6 +176,7 @@ public class UserServlet extends HttpServlet {
             User newUser = new User(id, name, email, country, userDAO.selectUser(id).getBalance());
             userDAO.updateUser(newUser);
 
+            request.setAttribute("user", newUser);
             request.setAttribute("success", "Editing is successful");
             RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
             dispatcher.forward(request, response);
@@ -192,6 +193,7 @@ public class UserServlet extends HttpServlet {
         String fee = request.getParameter("fee");
         String feeAmount = request.getParameter("amount");
         String amountReceive = String.valueOf(Float.parseFloat(amount) + Float.parseFloat(feeAmount));
+
         User userSend = userDAO.selectUser(Integer.parseInt(idSend));
         User userReceive = userDAO.selectUser(Integer.parseInt(idReceive));
 

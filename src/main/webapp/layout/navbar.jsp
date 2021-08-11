@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" language="java" %>
 <nav class="navbar navbar-expand fixed-top be-top-header">
     <div class="container-fluid">
         <div class="be-navbar-header"><a class="navbar-brand" href="index.html"></a>

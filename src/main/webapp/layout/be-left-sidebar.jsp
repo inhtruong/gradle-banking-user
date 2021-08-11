@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" language="java" %>
 <div class="be-left-sidebar">
     <div class="left-sidebar-wrapper"><a class="left-sidebar-toggle" href="#">Dashboard</a>
         <div class="left-sidebar-spacer">
